@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let correct = document.querySelector(".correct");
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector("#feedback1").innerHTML = 'Correct!';
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                let incorrect = document.querySelectorAll(".incorrect");
+                for(let i = 0; i < incorrect.length; i++)
+                {
+                    incorrect[i].addEventListener('click', function() {
+                        incorrect[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = "Incorrect!";
+                    });
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('#check').addEventListener('click', function() {
+                    let text = document.querySelector('#inputText1').value;
+                    if(text === 'Population Growth')
+                    {
+                        document.querySelector('#feedback2').innerHTML = "Correct!";
+                    }
+                    else
+                    {
+                        document.querySelector('#feedback2').innerHTML = "Incorrect!";
+                    }
+                });
+            });
+        </script>
+
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    What was the first coding language in this course
+                </h3>
+                <button class="incorrect" type="button">C++</button>
+                <button class="correct" type="button">Scratch</button>
+                <button class="incorrect" type="button">Python</button>
+                <button class="incorrect" type="button">HTML</button>
+
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What was the name of week 1 lab problem</h3>
+                <input type="text" id="inputText1"></input>
+                <button type="button" id="check">Check your answer</button>
+                <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+</html>
